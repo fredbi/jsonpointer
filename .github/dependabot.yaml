@@ -3,8 +3,9 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: "daily"
+      #interval: "weekly"
+      #day: "friday"
     open-pull-requests-limit: 3          # <- default is 5
     groups:                              # <- group all github actions updates in a single PR
       development-dependencies:
@@ -15,8 +16,9 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: "daily"
+      #interval: "weekly"
+      #day: "friday"
     open-pull-requests-limit: 3
     groups:
       development-dependencies:
@@ -27,4 +29,10 @@ updates:
         dependency-type: production
         patterns:
           - "github.com/go-openapi/*"
+
+      other-direct-dependencies:
+        dependency-type: production
+        ignore-patterns:
+          - "github.com/go-openapi/*"
+          - "github.com/stretchr/testify"
 

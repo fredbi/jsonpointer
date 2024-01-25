@@ -32,7 +32,7 @@ updates:
 
       other-direct-dependencies:
         dependency-type: production
-        ignore-patterns:
+        exclude-patterns:
           - "github.com/go-openapi/*"
           - "github.com/stretchr/testify"
 

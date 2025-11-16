@@ -4,11 +4,11 @@
 
 | Total Contributors | Total Contributions |
 | --- | --- |
-| 12  | 96  |
+| 12  | 94  |
 
 | Username | All Time Contribution Count | All Commits |
 | --- | --- | --- |
-| @fredbi | 49 | https://github.com/fredbi/jsonpointer/commits?author=fredbi |
+| @fredbi | 47 | https://github.com/fredbi/jsonpointer/commits?author=fredbi |
 | @casualjim | 33 | https://github.com/fredbi/jsonpointer/commits?author=casualjim |
 | @magodo | 3 | https://github.com/fredbi/jsonpointer/commits?author=magodo |
 | @youyuanwu | 3 | https://github.com/fredbi/jsonpointer/commits?author=youyuanwu |

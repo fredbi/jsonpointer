@@ -24,6 +24,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REPOSITORY:  ${{ github.repository }}
+        LINK_TO_PROFILE: 'True'
     -
       name: Rename contributor file
       run: |
@@ -43,8 +44,3 @@ jobs:
         assignees: fredbi
         reviewers: fredbi
         sign-commits: true
-    -
-      name: Auto-approve PR
-      env:
-        GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: gh pr review --approve "${{ steps.create-pull-request.outputs.pull-request-url }}"

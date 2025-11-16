@@ -52,16 +52,27 @@ jobs:
         run: gh pr merge --auto --rebase "$PR_URL"
 
   actions-bot:
-    # At this moment, we are content with auto-approve. Let's see if we enable auto-merge
     permissions:
       contents: write
       pull-requests: write
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.user.login == 'github-actions[bot]' }}
+    #if: ${{ github.event.pull_request.user.login == 'github-actions[bot]' }}
     steps:
       -
+        name: debug
+        run: |
+          echo "${{ github.event.pull_request.user.login }}"
+      -
         name: Auto-approve all github-actions bot PRs
+        if: ${{ github.event.pull_request.user.login == 'github-actions[bot]' }}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: gh pr review --approve "$PR_URL"
+      -
+        name: Auto-merge github-actions bot PRs
+        if: ${{ github.event.pull_request.user.login == 'github-actions[bot]' }}
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: gh pr merge --auto --rebase "$PR_URL"

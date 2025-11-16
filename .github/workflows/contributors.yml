@@ -20,12 +20,10 @@ jobs:
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
     -
       name: Identify all-time contributors to this repository
-      id: report-contributors
       uses: github/contributors@8b7586939baa0af4e801dbd22c88adf6e0db8915 # v1.7.5
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REPOSITORY:  ${{ github.repository }}
-        LINK_TO_PROFILE: "true"
     -
       name: Rename contributor file
       run: |
@@ -33,6 +31,7 @@ jobs:
         mv contributors.md CONTRIBUTORS.md
     -
       name: Create a PR
+      id: create-pull-request
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
       with:
         commit-message: "doc: updated contributors file"
@@ -43,3 +42,9 @@ jobs:
         labels: "bot"
         assignees: fredbi
         reviewers: fredbi
+        sign-commits: true
+    -
+      name: Auto-approve PR
+      env:
+        GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      run: gh pr review --approve "${{ steps.create-pull-request.outputs.pull-request-url }}"

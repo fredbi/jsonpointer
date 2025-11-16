@@ -29,7 +29,8 @@ jobs:
     -
       name: Rename contributor file
       run: |
-        mv contributors.md EMERITUS.md
+        rm -rf contributors.json
+        mv contributors.md CONTRIBUTORS.md
     -
       name: Create a PR
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8

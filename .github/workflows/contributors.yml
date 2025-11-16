@@ -34,10 +34,10 @@ jobs:
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
       with:
         commit-message: "doc: updated contributors file"
-        branch: doc/contributors-bot-${{ github.run_id}}
+        branch: doc/contributors-bot
         delete-branch: true
         title: "doc: updated contributors file"
         token: ${{ secrets.GITHUB_TOKEN }}
-        label: "bot"
+        labels: "bot"
         assignees: fredbi
         reviewers: fredbi

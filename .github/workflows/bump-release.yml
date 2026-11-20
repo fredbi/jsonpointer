@@ -30,7 +30,7 @@ jobs:
   bump-release:
     permissions:
       contents: write
-    uses: go-openapi/ci-workflows/.github/workflows/bump-release.yml@38ed6bf083115440d79b475442d6cf99ee450180 # v0.6.1
+    uses: go-openapi/ci-workflows/.github/workflows/bump-release.yml@692da2dae8f16666dea2392b18ad73130fbf738e # v0.6.5
     with:
       bump-type: ${{ inputs.bump-type }}
       tag-message-title: ${{ inputs.tag-message-title }}
